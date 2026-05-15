@@ -37,16 +37,16 @@ Hệ thống cho phép người dùng:
 
 ### Giai đoạn 1: Phân tích & Thiết kế 
 - [x] Tạo repository trên GitHub và mời giảng viên hướng dẫn  
-- [ ] Xác định yêu cầu hệ thống  
-- [ ] Xây dựng User Story và Use Case  
-- [ ] Thiết kế sơ bộ giao diện (UI)  
-
+- [x] Xác định yêu cầu hệ thống  
+- [x] Xây dựng User Story và Use Case  
+- [x] Thiết kế sơ bộ giao diện (UI)  
+- [x] Hoàn thành tài liệu phân tích hệ thống (Analysis.md)
 ### Giai đoạn 2: Phát triển hệ thống 
-- [ ] Thiết kế cơ sở dữ liệu (ERD)  
+- [x] Thiết kế cơ sở dữ liệu (ERD)  
 - [ ] Xây dựng giao diện frontend  
 - [ ] Xây dựng backend xử lý logic  
 - [ ] Kết nối database với hệ thống  
-- [ ] Hoàn thiện các chức năng chính  
+- [ ] Hoàn thiện các chức năng chính 
 
 ### Giai đoạn 3: Kiểm thử & Hoàn thiện 
 - [ ] Kiểm thử chức năng hệ thống  
