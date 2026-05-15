@@ -198,10 +198,4 @@ graph TD
 
 ---
 
-# 11. Kết luận
 
-Tài liệu phân tích giúp định hướng quá trình phát triển hệ thống, hỗ trợ xây dựng chức năng đúng logic và dễ dàng mở rộng trong các giai đoạn tiếp theo.
-
-Các sơ đồ và mô hình được xây dựng nhằm đảm bảo hệ thống có cấu trúc rõ ràng, dễ triển khai và thuận tiện cho quá trình phát triển thực tế.
-
----
