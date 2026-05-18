@@ -1,66 +1,77 @@
-# KẾ HOẠCH THỰC HIỆN ĐỀ TÀI
-## XÂY DỰNG HỆ THỐNG QUẢN LÝ VÀ THEO DÕI TIẾN ĐỘ CÔNG VIỆC CÁ NHÂN
-## 1. Thông tin chung
+# PROJECT PLAN: PERSONAL TASK MANAGEMENT SYSTEM
+
+---
+
+# 1. Thông tin chung
+
 - **Sinh viên thực hiện:** Tô Ngọc Anh  
 - **Lớp:** K11 CNTTA - Học viện Phụ nữ Việt Nam  
-- **Đề tài:** Xây dựng hệ thống quản lý và theo dõi tiến độ công việc cá nhân
+- **Đề tài:** Xây dựng hệ thống quản lý và theo dõi tiến độ công việc cá nhân  
 
-## 2. Mô tả hệ thống
-Hệ thống cho phép người dùng:
-- Tạo, chỉnh sửa và xóa công việc (Task)
-- Thiết lập deadline và mức độ ưu tiên
-- Theo dõi tiến độ hoàn thành công việc
-- Quản lý danh sách công việc một cách trực quan và hiệu quả
+---
 
-## 3. Yêu cầu hệ thống
-### 3.1. Functional Requirements 
-- Đăng ký / Đăng nhập người dùng
-- Thêm / Sửa / Xóa công việc
-- Đặt deadline cho công việc
-- Phân loại mức độ ưu tiên (Cao / Trung bình / Thấp)
-- Đánh dấu hoàn thành công việc
-- Tìm kiếm và lọc công việc
-- Hiển thị tiến độ công việc
-### 3.2. Non-functional Requirements 
-- Giao diện thân thiện, dễ sử dụng
-- Thời gian phản hồi nhanh
-- Dữ liệu được lưu trữ an toàn
-- Hệ thống hoạt động ổn định
+# 2. Chiến lược cộng tác AI - Con người
 
-## 4. User Story 
-- Với vai trò là **người dùng**, tôi muốn thêm công việc để quản lý danh sách việc cần làm  
-- Với vai trò là **người dùng**, tôi muốn đặt deadline để không bị quên việc  
-- Với vai trò là **người dùng**, tôi muốn đánh dấu hoàn thành để theo dõi tiến độ  
-- Với vai trò là **người dùng**, tôi muốn xem danh sách công việc để kiểm soát công việc của mình  
+## 2.1. Vai trò của Sinh viên
 
-## 5. Kế hoạch thực hiện
+- Phân tích nhu cầu thực tế của người dùng
+- Thiết kế giao diện phù hợp với trải nghiệm sử dụng thực tế
+- Cài đặt môi trường phát triển (NodeJS, SQL Server, VS Code)
+- Kiểm thử trực tiếp hệ thống và xử lý lỗi phát sinh
+- Đưa ra quyết định logic và triển khai cuối cùng
 
-### Giai đoạn 1: Phân tích & Thiết kế 
-- [x] Tạo repository trên GitHub và mời giảng viên hướng dẫn  
-- [x] Xác định yêu cầu hệ thống  
-- [x] Xây dựng User Story và Use Case  
-- [x] Thiết kế sơ bộ giao diện (UI)  
-- [x] Hoàn thành tài liệu phân tích hệ thống (Analysis.md)
-### Giai đoạn 2: Phát triển hệ thống 
-- [x] Thiết kế cơ sở dữ liệu (ERD)  
-- [ ] Xây dựng giao diện frontend  
-- [ ] Xây dựng backend xử lý logic  
-- [ ] Kết nối database với hệ thống  
-- [ ] Hoàn thiện các chức năng chính 
+---
 
-### Giai đoạn 3: Kiểm thử & Hoàn thiện 
-- [ ] Kiểm thử chức năng hệ thống  
-- [ ] Sửa lỗi và tối ưu hệ thống  
-- [ ] Cải thiện giao diện người dùng  
+## 2.2. Vai trò của AI hỗ trợ
 
-### Giai đoạn 4: Báo cáo & Demo 
-- [ ] Hoàn thiện báo cáo thực tập  
-- [ ] Chuẩn bị slide thuyết trình  
-- [ ] Demo sản phẩm  
+- Gợi ý cấu trúc thư mục và khung sườn dự án
+- Hỗ trợ xây dựng tài liệu phân tích hệ thống
+- Sinh mã nguồn mẫu (Boilerplate Code)
+- Hỗ trợ thiết kế sơ đồ Mermaid (Use Case, Activity, ERD)
+- Gợi ý các trường hợp kiểm thử (Test Case)
 
-## 6. Công nghệ sử dụng
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** NodeJS  
-- **Database:** SQL Server  
-- **Công cụ:** GitHub, Visual Studio Code  
+---
 
+# 3. Kế hoạch thực hiện chi tiết
+
+| Giai đoạn | Nội dung công việc | Vai trò chính | Phân chia chi tiết | Tiến độ |
+|---|---|---|---|---|
+| Giai đoạn 1 | Khảo sát & Phân tích yêu cầu | AI + Sinh viên | AI hỗ trợ xây dựng khung tài liệu và gợi ý User Story. Sinh viên phân tích, chỉnh sửa và xác định yêu cầu hệ thống thực tế. | [x] Hoàn thành |
+| Giai đoạn 2 | Thiết kế DB, UI, API | Sinh viên | AI gợi ý ERD và cấu trúc API mẫu. Sinh viên thiết kế giao diện, xây dựng Database và hoàn thiện mô hình dữ liệu. | [ ] Đang thực hiện |
+| Giai đoạn 3 | Lập trình hệ thống | Sinh viên | AI hỗ trợ sinh code mẫu và giải thích logic xử lý. Sinh viên trực tiếp lập trình, kết nối Backend với Database và tối ưu giao diện. | [ ] Chưa thực hiện |
+| Giai đoạn 4 | Kiểm thử hệ thống | Sinh viên | AI gợi ý danh sách Test Case. Sinh viên trực tiếp kiểm thử, phát hiện và sửa lỗi hệ thống. | [ ] Chưa thực hiện |
+| Giai đoạn 5 | Release & Báo cáo | Sinh viên | AI hỗ trợ cấu trúc slide và rà soát tài liệu. Sinh viên hoàn thiện báo cáo, đóng gói sản phẩm và thực hiện demo. | [ ] Chưa thực hiện |
+
+---
+
+# 4. Nhật ký tiến độ Tuần 1
+
+- Đã tạo Repository trên GitHub và cấu hình cộng tác viên
+- Đã xây dựng tài liệu phân tích hệ thống `ANALYSIS.md`
+- Đã thiết kế các sơ đồ Use Case, Activity Diagram, Sequence Diagram và ERD bằng Mermaid
+- Đã phân chia vai trò giữa AI hỗ trợ và Sinh viên trong từng giai đoạn phát triển
+
+---
+
+# 5. Công nghệ sử dụng
+
+| Thành phần | Công nghệ |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | NodeJS (Express Framework) |
+| Database | Microsoft SQL Server |
+| Công cụ hỗ trợ | GitHub, Visual Studio Code |
+
+---
+
+# 6. Định hướng phát triển
+
+- Hoàn thiện hệ thống quản lý công việc cá nhân hoạt động ổn định
+- Xây dựng giao diện trực quan và dễ sử dụng
+- Hỗ trợ theo dõi tiến độ công việc hiệu quả
+- Có khả năng mở rộng thêm chức năng trong tương lai
+
+---
+
+
+---
