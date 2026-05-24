@@ -264,7 +264,7 @@ sequenceDiagram
 
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
-![Sơ đồ ERD](anh%201.jpg)
+![Sơ đồ ERD](anh%202.jpg)
 
 ### Giải thích cơ sở dữ liệu
 
