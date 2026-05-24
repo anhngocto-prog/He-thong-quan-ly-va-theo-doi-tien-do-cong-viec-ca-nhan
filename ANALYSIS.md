@@ -266,31 +266,7 @@ sequenceDiagram
 
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
-```mermaid
-erDiagram
-
-    USER ||--o{ TASK : "quản lý"
-
-    USER {
-        int user_id PK
-        varchar username
-        varchar password
-        varchar email
-        datetime created_at
-    }
-
-    TASK {
-        int task_id PK
-        varchar title
-        text description
-        datetime deadline
-        varchar priority
-        varchar status
-        datetime created_at
-        datetime updated_at
-        int user_id FK
-    }
-```
+![Sơ đồ ERD](anh 1.jpg)
 
 ### Giải thích cơ sở dữ liệu
 
