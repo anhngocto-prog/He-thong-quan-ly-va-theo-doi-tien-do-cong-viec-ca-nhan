@@ -213,60 +213,58 @@ Biểu đồ mô tả quá trình tương tác giữa các thành phần trong h
 ```mermaid
 sequenceDiagram
 
-    participant User as Người dùng
-    participant UI as Giao diện (Frontend)
-    participant API as Backend API
-    participant Service as Task Service
-    participant DB as SQL Server
+    participant ND as Người dùng
+    participant FE as Giao diện người dùng
+    participant API as Hệ thống xử lý
+    participant Service as Dịch vụ công việc
+    participant DB as Cơ sở dữ liệu
 
-    User->>UI: Nhập thông tin Task & nhấn Lưu
+    ND->>FE: Nhập thông tin công việc và nhấn Lưu
 
-    UI->>API: Gửi Request POST /api/tasks
+    FE->>API: Gửi yêu cầu tạo công việc
 
-    API->>Service: validateTask()
+    API->>Service: Kiểm tra dữ liệu công việc
 
     alt Dữ liệu không hợp lệ
 
-        Service-->>API: Validation Error
+        Service-->>API: Trả về lỗi kiểm tra dữ liệu
 
-        API-->>UI: 400 Bad Request
+        API-->>FE: Thông báo lỗi nhập liệu
 
-        UI-->>User: Hiển thị lỗi nhập liệu
+        FE-->>ND: Hiển thị thông báo lỗi
 
     else Dữ liệu hợp lệ
 
-        Service->>DB: INSERT INTO TASK
+        Service->>DB: Lưu công việc vào cơ sở dữ liệu
 
-        alt Lỗi Database
+        alt Lỗi cơ sở dữ liệu
 
-            DB-->>Service: Save Failed
+            DB-->>Service: Lưu dữ liệu thất bại
 
-            Service-->>API: Database Error
+            Service-->>API: Trả về lỗi hệ thống
 
-            API-->>UI: 500 Internal Server Error
+            API-->>FE: Thông báo lỗi hệ thống
 
-            UI-->>User: Thông báo lỗi hệ thống
+            FE-->>ND: Hiển thị lỗi hệ thống
 
         else Thành công
 
-            DB-->>Service: Insert Success
+            DB-->>Service: Lưu dữ liệu thành công
 
-            Service-->>API: Task Created
+            Service-->>API: Tạo công việc thành công
 
-            API-->>UI: 200 OK
+            API-->>FE: Trả về kết quả thành công
 
-            UI-->>User: Hiển thị Task mới
+            FE-->>ND: Hiển thị công việc mới
 
         end
 
     end
 ```
 
----
-
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
-![Sơ đồ ERD](anh 1.jpg)
+![Sơ đồ ERD](anh%201.jpg)
 
 ### Giải thích cơ sở dữ liệu
 
