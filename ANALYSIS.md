@@ -287,9 +287,9 @@ Lưu trữ thông tin tài khoản người dùng của hệ thống.
 | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
 |---|---|---|---|
 | user_id | int | PK, Auto Increment | Mã người dùng |
-| username | varchar | NOT NULL, UNIQUE | Tên đăng nhập |
-| password | varchar | NOT NULL | Mật khẩu người dùng |
-| email | varchar | NOT NULL, UNIQUE | Email tài khoản |
+| username | nvarchar | NOT NULL, UNIQUE | Tên đăng nhập |
+| password | nvarchar | NOT NULL | Mật khẩu người dùng |
+| email | nvarchar | NOT NULL, UNIQUE | Email tài khoản |
 | created_at | datetime | DEFAULT CURRENT_TIMESTAMP | Thời gian tạo tài khoản |
 
 ---
@@ -301,11 +301,11 @@ Lưu trữ danh sách công việc của từng người dùng.
 | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
 |---|---|---|---|
 | task_id | int | PK, Auto Increment | Mã công việc |
-| title | varchar | NOT NULL | Tên công việc |
+| title | nvarchar | NOT NULL | Tên công việc |
 | description | text | NULL | Mô tả chi tiết công việc |
 | deadline | datetime | NOT NULL | Hạn hoàn thành |
-| priority | varchar | NOT NULL | Mức độ ưu tiên |
-| status | varchar | DEFAULT 'Pending' | Trạng thái công việc |
+| priority | nvarchar | NOT NULL | Mức độ ưu tiên |
+| status | nvarchar | DEFAULT 'Pending' | Trạng thái công việc |
 | created_at | datetime | DEFAULT CURRENT_TIMESTAMP | Ngày tạo task |
 | updated_at | datetime | NULL | Ngày cập nhật gần nhất |
 | user_id | int | FK | Liên kết người dùng |
