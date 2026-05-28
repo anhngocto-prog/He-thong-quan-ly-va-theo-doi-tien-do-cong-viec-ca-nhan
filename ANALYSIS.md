@@ -480,7 +480,7 @@ sequenceDiagram
 
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
-![Sơ đồ ERD](anh%202.jpg)
+![Sơ đồ ERD](anh%203.jpg)
 
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
