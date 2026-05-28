@@ -19,10 +19,10 @@ const Task = {
         try {
             const pool = await mssql.connect();
             await pool.request()
-                .input('title', mssql.NVarChar, title)
-                .input('description', mssql.NVarChar, description)
-                .input('deadline', mssql.Date, deadline)
-                .input('priority', mssql.NVarChar, priority)
+                .input('title', mssql.NVarChar(100), title)
+                .input('description', mssql.NVarChar(mssql.MAX), description)
+                .input('deadline', mssql.DateTime, deadline) // Đồng nhất kiểu dữ liệu DateTime
+                .input('priority', mssql.NVarChar(20), priority)
                 .input('user_id', mssql.Int, user_id)
                 .query(`INSERT INTO Tasks (title, description, deadline, priority, user_id) 
                         VALUES (@title, @description, @deadline, @priority, @user_id)`);
@@ -33,21 +33,33 @@ const Task = {
     },
 
     // 3. Cập nhật trạng thái hoặc thông tin công việc (Sửa)
-    update: async (task_id, title, description, deadline, priority, status) => {
+    // Sửa nhận tham số dạng Object để khớp hoàn toàn với Controller
+    update: async (task_id, { title, description, deadline, priority, status }) => {
         try {
             const pool = await mssql.connect();
-            await pool.request()
-                .input('task_id', mssql.Int, task_id)
-                .input('title', mssql.NVarChar, title)
-                .input('description', mssql.NVarChar, description)
-                .input('deadline', mssql.Date, deadline)
-                .input('priority', mssql.NVarChar, priority)
-                .input('status', mssql.NVarChar, status)
+            const request = pool.request().input('task_id', mssql.Int, task_id);
+
+            // Xử lý Leak Case: Nếu chỉ bấm hoàn thành nhanh (Chỉ có status, không có title)
+            if (status && !title) {
+                await request
+                    .input('status', mssql.NVarChar(20), status)
+                    .query('UPDATE Tasks SET status = @status WHERE task_id = @task_id');
+                return { message: 'Cập nhật trạng thái công việc thành công!' };
+            }
+
+            // Xử lý khi người dùng ấn sửa toàn bộ thông tin trên Form
+            await request
+                .input('title', mssql.NVarChar(100), title)
+                .input('description', mssql.NVarChar(mssql.MAX), description)
+                .input('deadline', mssql.DateTime, deadline) // Đồng nhất kiểu dữ liệu DateTime
+                .input('priority', mssql.NVarChar(20), priority)
+                .input('status', mssql.NVarChar(20), status || 'Pending')
                 .query(`UPDATE Tasks 
                         SET title = @title, description = @description, deadline = @deadline, 
                             priority = @priority, status = @status 
                         WHERE task_id = @task_id`);
-            return { message: 'Cập nhật công việc thành công!' };
+
+            return { message: 'Cập nhật thông tin công việc thành công!' };
         } catch (error) {
             throw new Error('Lỗi khi cập nhật công việc: ' + error.message);
         }
