@@ -1,7 +1,5 @@
 # PHÂN TÍCH HỆ THỐNG QUẢN LÝ VÀ THEO DÕI TIẾN ĐỘ CÔNG VIỆC CÁ NHÂN
 
----
-
 # 1. Giới thiệu hệ thống
 
 Hệ thống được xây dựng nhằm hỗ trợ người dùng quản lý thời gian và công việc cá nhân một cách khoa học.
@@ -10,12 +8,12 @@ Thông qua hệ thống, người dùng có thể tạo và quản lý danh sác
 
 ## Các tính năng cốt lõi
 
-- Tạo và quản lý danh sách công việc (CRUD Task)
-- Thiết lập thời hạn (Deadline) và mức độ ưu tiên
-- Theo dõi trạng thái hoàn thành trực quan
-- Tìm kiếm, lọc và sắp xếp công việc nhanh chóng
-- Thống kê tiến độ công việc
-- Đăng nhập và đăng xuất hệ thống
+* Tạo và quản lý danh sách công việc (CRUD Task)
+* Thiết lập thời hạn (Deadline) và mức độ ưu tiên
+* Theo dõi trạng thái hoàn thành trực quan
+* Tìm kiếm, lọc và sắp xếp công việc nhanh chóng
+* Thống kê tiến độ công việc
+* Đăng nhập và đăng xuất hệ thống
 
 ---
 
@@ -23,47 +21,50 @@ Thông qua hệ thống, người dùng có thể tạo và quản lý danh sác
 
 ## 2.1. Yêu cầu chức năng (Functional Requirements)
 
-| Mã | Chức năng | Mô tả chi tiết |
-|---|---|---|
-| FR01 | Đăng ký / Đăng nhập | Tạo tài khoản và xác thực người dùng |
-| FR02 | Thêm công việc | Tạo task mới với các thuộc tính: Tên, Mô tả, Deadline, Ưu tiên |
-| FR03 | Quản lý task | Cho phép cập nhật hoặc xóa các task đã tồn tại |
-| FR04 | Theo dõi tiến độ | Chuyển đổi trạng thái hoàn thành / chưa hoàn thành |
-| FR05 | Tìm kiếm | Tìm kiếm nhanh task theo tên công việc |
-| FR06 | Đăng xuất | Cho phép người dùng đăng xuất khỏi hệ thống |
-| FR07 | Lọc công việc | Lọc task theo trạng thái hoặc mức độ ưu tiên |
-| FR08 | Sắp xếp công việc | Sắp xếp task theo deadline hoặc mức ưu tiên |
-| FR09 | Thống kê tiến độ | Hiển thị số lượng task đã hoàn thành và chưa hoàn thành |
+| Mã   | Chức năng               | Mô tả chi tiết                                           |
+| ---- | ----------------------- | -------------------------------------------------------- |
+| FR01 | Đăng ký                 | Tạo tài khoản mới với Username, Password và Email hợp lệ |
+| FR02 | Đăng nhập               | Xác thực thông tin người dùng để truy cập hệ thống       |
+| FR03 | Đăng xuất               | Cho phép người dùng kết thúc phiên làm việc an toàn      |
+| FR04 | Xem danh sách công việc | Hiển thị toàn bộ danh sách công việc cá nhân             |
+| FR05 | Thêm công việc          | Tạo task mới với Tên, Mô tả, Deadline và Mức ưu tiên     |
+| FR06 | Chỉnh sửa công việc     | Cập nhật thông tin chi tiết của task                     |
+| FR07 | Xóa công việc           | Xóa công việc khỏi hệ thống sau khi xác nhận             |
+| FR08 | Cập nhật trạng thái     | Chuyển đổi trạng thái Pending / Completed                |
+| FR09 | Tìm kiếm công việc      | Tìm kiếm task theo tiêu đề                               |
+| FR10 | Lọc công việc           | Lọc task theo trạng thái hoặc mức ưu tiên                |
+| FR11 | Sắp xếp công việc       | Sắp xếp task theo deadline hoặc mức ưu tiên              |
+| FR12 | Thống kê tiến độ        | Thống kê số lượng và tỷ lệ công việc hoàn thành          |
+
 ---
 
 ## 2.2. Yêu cầu phi chức năng (Non-functional Requirements)
 
-- Giao diện thân thiện, hiện đại và dễ sử dụng
-- Hệ thống hoạt động tốt trên các trình duyệt web phổ biến
-- Dữ liệu được lưu trữ an toàn trên SQL Server
-- Phân quyền dữ liệu theo từng người dùng
-- Tốc độ phản hồi nhanh cho các thao tác CRUD cơ bản
+* Giao diện thân thiện, hiện đại và dễ sử dụng.
+* Hệ thống hoạt động tốt trên các trình duyệt phổ biến.
+* Dữ liệu được lưu trữ an toàn trên SQL Server.
+* Người dùng chỉ được phép thao tác trên dữ liệu cá nhân của chính mình.
+* Tốc độ phản hồi nhanh cho các thao tác cơ bản.
+* Hệ thống xử lý ngoại lệ tốt và hiển thị thông báo lỗi rõ ràng.
 
 ---
 
 # 3. User Story
 
-| STT | User Story |
-|---|---|
-| 1 | Người dùng muốn thêm công việc để không bỏ lỡ các nhiệm vụ quan trọng |
-| 2 | Người dùng muốn đặt deadline để quản lý thời gian hiệu quả hơn |
-| 3 | Người dùng muốn đánh dấu hoàn thành để theo dõi tiến độ công việc hàng ngày |
-| 4 | Người dùng muốn tìm kiếm nhanh để quản lý danh sách task dễ dàng hơn khi số lượng lớn |
-| 5 | Người dùng muốn lọc công việc để dễ dàng theo dõi các task quan trọng |
-| 6 | Người dùng muốn sắp xếp công việc theo deadline để ưu tiên xử lý |
-| 7 | Người dùng muốn xem thống kê tiến độ để đánh giá hiệu suất công việc |
-| 8 | Người dùng muốn đăng xuất để bảo mật tài khoản cá nhân |
+| STT | User Story                                                                |
+| --- | ------------------------------------------------------------------------- |
+| 1   | Người dùng muốn thêm công việc để không bỏ lỡ các nhiệm vụ quan trọng     |
+| 2   | Người dùng muốn đặt deadline để quản lý thời gian hiệu quả hơn            |
+| 3   | Người dùng muốn đánh dấu hoàn thành để theo dõi tiến độ công việc         |
+| 4   | Người dùng muốn tìm kiếm nhanh để quản lý danh sách công việc dễ dàng hơn |
+| 5   | Người dùng muốn lọc công việc để theo dõi các task quan trọng             |
+| 6   | Người dùng muốn sắp xếp công việc theo deadline để ưu tiên xử lý          |
+| 7   | Người dùng muốn xem thống kê tiến độ để đánh giá hiệu suất làm việc       |
+| 8   | Người dùng muốn đăng xuất để bảo mật tài khoản cá nhân                    |
 
 ---
 
 # 4. Sơ đồ Use Case (Use Case Diagram)
-
-Biểu đồ mô tả các tương tác giữa Người dùng và các chức năng chính của hệ thống quản lý công việc cá nhân.
 
 ```mermaid
 graph LR
@@ -83,9 +84,6 @@ graph LR
         UC7(Xóa công việc)
 
         UC8(Cập nhật trạng thái công việc)
-
-        UC9(Thiết lập Deadline)
-        UC10(Thiết lập mức ưu tiên)
 
         UC11(Tìm kiếm công việc)
         UC12(Lọc công việc)
@@ -115,62 +113,264 @@ graph LR
 
     User --> UC14
 
-    UC5 -.<<include>>.-> UC9
-    UC5 -.<<include>>.-> UC10
+    UC1 -.<<include>>.-> UC15
+    UC2 -.<<include>>.-> UC15
     UC5 -.<<include>>.-> UC15
-
     UC6 -.<<include>>.-> UC15
 ```
 
-# 5. Use Case Description (Mô tả chi tiết)
+---
+
+# 5. Use Case Description
 
 ## 5.1. Use Case: Đăng nhập hệ thống
 
-- **Actor:** Người dùng  
-- **Mô tả:** Người dùng đăng nhập vào hệ thống để truy cập và quản lý dữ liệu cá nhân  
-- **Điều kiện trước:** Người dùng đã có tài khoản hợp lệ  
-- **Điều kiện sau:** Hệ thống chuyển hướng đến giao diện quản lý công việc  
-- **Input:** Tên đăng nhập (Username), Mật khẩu (Password)  
-- **Output:** Hiển thị Dashboard quản lý công việc  
-- **Luồng chính:**  
-  1. Người dùng nhập tài khoản và mật khẩu  
-  2. Hệ thống kiểm tra thông tin đăng nhập  
-  3. Đăng nhập thành công và hiển thị giao diện chính  
+### Actor
 
-- **Luồng ngoại lệ:**  
-  - Sai tài khoản hoặc mật khẩu  
-  - Tài khoản chưa tồn tại  
+Người dùng
 
-- **Exception:** Lỗi kết nối cơ sở dữ liệu  
+### Mô tả
+
+Người dùng đăng nhập vào hệ thống để truy cập dữ liệu cá nhân.
+
+### Điều kiện trước
+
+Người dùng đã có tài khoản hợp lệ.
+
+### Điều kiện sau
+
+Hệ thống xác thực thành công và chuyển hướng đến trang quản lý chính.
+
+### Input
+
+* Username
+* Password
+
+### Output
+
+Hiển thị giao diện quản lý công việc cá nhân.
+
+### Luồng xử lý chính
+
+1. Người dùng truy cập trang đăng nhập.
+2. Người dùng nhập Username và Password.
+3. Hệ thống gửi yêu cầu xác thực.
+4. Backend kiểm tra thông tin trong Database.
+5. Hệ thống tạo phiên đăng nhập thành công.
+6. Chuyển hướng đến trang quản lý chính.
+
+### Luồng xử lý thay thế
+
+* Người dùng bỏ trống thông tin:
+  Hệ thống hiển thị thông báo:
+  "Vui lòng nhập đầy đủ thông tin."
+
+* Người dùng nhập sai tài khoản hoặc mật khẩu:
+  Hệ thống hiển thị:
+  "Tên đăng nhập hoặc mật khẩu không chính xác."
+
+* Người dùng nhập sai mật khẩu quá nhiều lần:
+  Hệ thống tạm khóa tài khoản trong 15 phút.
+
+* Phiên đăng nhập hết hạn:
+  Hệ thống yêu cầu người dùng đăng nhập lại.
+
+### Ngoại lệ
+
+* Lỗi kết nối cơ sở dữ liệu.
+* Hệ thống không phản hồi.
 
 ---
 
-## 5.2. Use Case: Thêm công việc
+## 5.2. Use Case: Đăng ký tài khoản
 
-- **Actor:** Người dùng  
-- **Mô tả:** Người dùng tạo mới một công việc để theo dõi tiến độ cá nhân  
-- **Điều kiện trước:** Người dùng đã đăng nhập hệ thống  
-- **Điều kiện sau:** Công việc được lưu vào cơ sở dữ liệu  
-- **Input:** Tên công việc, mô tả, deadline, mức độ ưu tiên  
-- **Output:** Hiển thị công việc mới trong danh sách task  
-- **Luồng chính:**  
-  1. Người dùng chọn chức năng thêm công việc  
-  2. Nhập thông tin task  
-  3. Hệ thống kiểm tra dữ liệu hợp lệ  
-  4. Lưu dữ liệu vào Database  
-  5. Hiển thị task mới lên giao diện  
+### Actor
 
-- **Luồng ngoại lệ:**  
-  - Thiếu thông tin bắt buộc  
-  - Deadline không hợp lệ  
+Người dùng
 
-- **Exception:** Lỗi lưu dữ liệu hoặc lỗi hệ thống  
+### Mô tả
+
+Người dùng tạo tài khoản mới để sử dụng hệ thống.
+
+### Điều kiện trước
+
+Người dùng chưa đăng nhập.
+
+### Điều kiện sau
+
+Thông tin tài khoản được lưu vào Database.
+
+### Input
+
+* Username
+* Email
+* Password
+* Confirm Password
+
+### Output
+
+Hiển thị thông báo đăng ký thành công.
+
+### Luồng xử lý chính
+
+1. Người dùng nhập đầy đủ thông tin đăng ký.
+2. Hệ thống kiểm tra dữ liệu hợp lệ.
+3. Hệ thống kiểm tra Username và Email có tồn tại hay chưa.
+4. Hệ thống mã hóa mật khẩu.
+5. Lưu dữ liệu vào Database.
+6. Chuyển hướng sang trang đăng nhập.
+
+### Luồng xử lý thay thế
+
+* Người dùng bỏ trống dữ liệu.
+* Email không đúng định dạng.
+* Password quá ngắn.
+* Password xác nhận không khớp.
+* Username hoặc Email đã tồn tại.
+
+### Ngoại lệ
+
+* Lỗi lưu dữ liệu.
+* Mất kết nối Server.
 
 ---
+
+## 5.3. Use Case: Thêm công việc
+
+### Actor
+
+Người dùng
+
+### Mô tả
+
+Người dùng tạo mới một công việc để theo dõi tiến độ.
+
+### Điều kiện trước
+
+Người dùng đã đăng nhập thành công.
+
+### Điều kiện sau
+
+Task mới được lưu thành công vào Database.
+
+### Input
+
+* Title
+* Description
+* Deadline
+* Priority
+
+### Output
+
+Hiển thị công việc mới trên giao diện.
+
+### Luồng xử lý chính
+
+1. Người dùng chọn chức năng "Thêm công việc".
+2. Hệ thống hiển thị form nhập dữ liệu.
+3. Người dùng nhập thông tin công việc.
+4. Hệ thống kiểm tra dữ liệu hợp lệ.
+5. Backend lưu dữ liệu vào Database.
+6. Cập nhật danh sách công việc trên giao diện.
+
+### Luồng xử lý thay thế
+
+* Title bị bỏ trống.
+* Deadline nhỏ hơn thời gian hiện tại.
+* Title vượt quá giới hạn ký tự.
+* Người dùng nhập dữ liệu không hợp lệ.
+
+### Ngoại lệ
+
+* Không thể lưu dữ liệu vào Database.
+* Lỗi kết nối hệ thống.
+
+---
+
+## 5.4. Use Case: Chỉnh sửa công việc
+
+### Actor
+
+Người dùng
+
+### Mô tả
+
+Người dùng chỉnh sửa thông tin công việc đã tồn tại.
+
+### Điều kiện trước
+
+Task cần chỉnh sửa phải thuộc quyền sở hữu của người dùng.
+
+### Điều kiện sau
+
+Thông tin task được cập nhật thành công.
+
+### Luồng xử lý chính
+
+1. Người dùng chọn chức năng chỉnh sửa.
+2. Hệ thống hiển thị dữ liệu hiện tại.
+3. Người dùng cập nhật thông tin.
+4. Hệ thống kiểm tra dữ liệu hợp lệ.
+5. Backend cập nhật dữ liệu vào Database.
+6. Giao diện hiển thị dữ liệu mới.
+
+### Luồng xử lý thay thế
+
+* Title bị bỏ trống.
+* Deadline không hợp lệ.
+
+### Ngoại lệ
+
+* Người dùng không có quyền chỉnh sửa task.
+* Task không tồn tại.
+* Lỗi cập nhật dữ liệu.
+
+---
+
+## 5.5. Use Case: Xóa công việc
+
+### Actor
+
+Người dùng
+
+### Mô tả
+
+Người dùng xóa công việc khỏi hệ thống.
+
+### Điều kiện trước
+
+Task tồn tại trong danh sách công việc.
+
+### Điều kiện sau
+
+Task bị xóa khỏi Database.
+
+### Luồng xử lý chính
+
+1. Người dùng chọn chức năng xóa.
+2. Hệ thống hiển thị hộp thoại xác nhận.
+3. Người dùng xác nhận xóa.
+4. Hệ thống xóa dữ liệu trong Database.
+5. Giao diện cập nhật danh sách công việc.
+
+### Luồng xử lý thay thế
+
+* Người dùng hủy thao tác xóa.
+
+### Ngoại lệ
+
+* Task không tồn tại.
+* Người dùng không có quyền xóa task.
+* Lỗi xóa dữ liệu trong Database.
+
+```
+```
+
 
 # 6. Biểu đồ hoạt động (Activity Diagram)
 
 Biểu đồ mô tả luồng xử lý khi người dùng thực hiện thêm một nhiệm vụ mới vào hệ thống.
+
 
 ```mermaid
 flowchart TD
@@ -179,42 +379,43 @@ flowchart TD
 
     A --> B[Người dùng đăng nhập]
 
-    B --> C{Thông tin hợp lệ?}
+    B --> C{Thông tin đăng nhập hợp lệ?}
 
-    C -- Không --> D[Thông báo lỗi đăng nhập]
+    C -- Không --> D[Hiển thị thông báo lỗi]
     D --> B
 
-    C -- Có --> E[Hiển thị Dashboard]
+    C -- Có --> E[Hiển thị trang quản lý công việc]
 
     E --> F[Chọn chức năng Thêm công việc]
 
     F --> G[Nhập thông tin công việc]
 
-    G --> H[Kiểm tra dữ liệu]
+    G --> H[Gửi dữ liệu đến Backend]
 
-    H --> I{Dữ liệu hợp lệ?}
+    H --> I[Kiểm tra tính hợp lệ dữ liệu]
 
-    I -- Không --> J[Hiển thị thông báo lỗi]
-    J --> G
+    I --> J{Dữ liệu hợp lệ?}
 
-    I -- Có --> K[Gửi dữ liệu đến Backend]
+    J -- Không --> K[Hiển thị thông báo lỗi nhập liệu]
+    K --> G
 
-    K --> L[Xử lý nghiệp vụ]
+    J -- Có --> L[Xử lý yêu cầu tạo công việc]
 
     L --> M[Lưu dữ liệu vào Database]
 
-    M --> N{Lưu thành công?}
+    M --> N{Lưu dữ liệu thành công?}
 
-    N -- Không --> O[Thông báo lỗi hệ thống]
+    N -- Không --> O[Hiển thị thông báo lỗi hệ thống]
+    O --> R([Kết thúc])
 
     N -- Có --> P[Cập nhật danh sách công việc]
 
-    P --> Q[Hiển thị task mới]
+    P --> Q[Hiển thị công việc mới]
 
     Q --> R([Kết thúc])
-
-    O --> R
 ```
+
+
 
 ---
 
@@ -222,12 +423,13 @@ flowchart TD
 
 Biểu đồ mô tả quá trình tương tác giữa các thành phần trong hệ thống khi người dùng tạo mới một công việc.
 
+
 ```mermaid
 sequenceDiagram
 
     participant ND as Người dùng
     participant FE as Giao diện người dùng
-    participant API as Hệ thống xử lý
+    participant API as Backend API
     participant Service as Dịch vụ công việc
     participant DB as Cơ sở dữ liệu
 
@@ -241,7 +443,7 @@ sequenceDiagram
 
         Service-->>API: Trả về lỗi kiểm tra dữ liệu
 
-        API-->>FE: Thông báo lỗi nhập liệu
+        API-->>FE: Trả về thông báo lỗi nhập liệu
 
         FE-->>ND: Hiển thị thông báo lỗi
 
@@ -255,83 +457,124 @@ sequenceDiagram
 
             Service-->>API: Trả về lỗi hệ thống
 
-            API-->>FE: Thông báo lỗi hệ thống
+            API-->>FE: Trả về thông báo lỗi hệ thống
 
-            FE-->>ND: Hiển thị lỗi hệ thống
+            FE-->>ND: Hiển thị thông báo lỗi hệ thống
 
         else Thành công
 
             DB-->>Service: Lưu dữ liệu thành công
 
-            Service-->>API: Tạo công việc thành công
+            Service-->>API: Trả về kết quả thành công
 
-            API-->>FE: Trả về kết quả thành công
+            API-->>FE: Trả về công việc mới
 
-            FE-->>ND: Hiển thị công việc mới
+            FE-->>ND: Hiển thị công việc mới trên giao diện
 
         end
 
     end
 ```
 
+
+
 # 8. Thiết kế cơ sở dữ liệu (ERD)
 
 ![Sơ đồ ERD](anh%202.jpg)
 
-### Giải thích cơ sở dữ liệu
+# 8. Thiết kế cơ sở dữ liệu (ERD)
 
-#### Bảng USER
+## 8.1. Giải thích cơ sở dữ liệu
 
-Lưu trữ thông tin tài khoản người dùng của hệ thống.
+Hệ thống sử dụng cơ sở dữ liệu quan hệ (Relational Database) với hai bảng chính gồm:
 
-| Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
-|---|---|---|---|
-| user_id | int | PK, Auto Increment | Mã người dùng |
-| username | nvarchar | NOT NULL, UNIQUE | Tên đăng nhập |
-| password | nvarchar | NOT NULL | Mật khẩu người dùng |
-| email | nvarchar | NOT NULL, UNIQUE | Email tài khoản |
-| created_at | datetime | DEFAULT CURRENT_TIMESTAMP | Thời gian tạo tài khoản |
+* USER: Lưu trữ thông tin tài khoản người dùng.
+* TASK: Lưu trữ danh sách công việc của từng người dùng.
+
+Mỗi người dùng có thể quản lý nhiều công việc khác nhau, đồng thời mỗi công việc chỉ thuộc về duy nhất một người dùng.
 
 ---
 
-#### Bảng TASK
+## 8.2. Bảng USER
 
-Lưu trữ danh sách công việc của từng người dùng.
+Bảng USER dùng để lưu trữ thông tin tài khoản đăng nhập của người dùng trong hệ thống.
 
-| Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
-|---|---|---|---|
-| task_id | int | PK, Auto Increment | Mã công việc |
-| title | nvarchar | NOT NULL | Tên công việc |
-| description | text | NULL | Mô tả chi tiết công việc |
-| deadline | datetime | NOT NULL | Hạn hoàn thành |
-| priority | nvarchar | NOT NULL | Mức độ ưu tiên |
-| status | nvarchar | DEFAULT 'Pending' | Trạng thái công việc |
-| created_at | datetime | DEFAULT CURRENT_TIMESTAMP | Ngày tạo task |
-| updated_at | datetime | NULL | Ngày cập nhật gần nhất |
-| user_id | int | FK | Liên kết người dùng |
+| Tên trường    | Kiểu dữ liệu  | Ràng buộc                 | Mô tả                   |
+| ------------- | ------------- | ------------------------- | ----------------------- |
+| user_id       | int           | PK, Auto Increment        | Mã người dùng           |
+| username      | nvarchar(50)  | NOT NULL, UNIQUE          | Tên đăng nhập           |
+| password_hash | nvarchar(255) | NOT NULL                  | Mật khẩu đã mã hóa      |
+| email         | nvarchar(100) | NOT NULL, UNIQUE          | Email tài khoản         |
+| created_at    | datetime      | DEFAULT CURRENT_TIMESTAMP | Thời gian tạo tài khoản |
 
 ---
 
-### Mối quan hệ giữa các bảng
+## 8.3. Bảng TASK
 
-- Một người dùng có thể sở hữu nhiều công việc khác nhau.
-- Mỗi công việc chỉ thuộc về một người dùng duy nhất.
-- Quan hệ giữa USER và TASK là One-to-Many (1-N).
+Bảng TASK dùng để lưu trữ danh sách công việc của từng người dùng.
+
+| Tên trường  | Kiểu dữ liệu  | Ràng buộc                 | Mô tả                    |
+| ----------- | ------------- | ------------------------- | ------------------------ |
+| task_id     | int           | PK, Auto Increment        | Mã công việc             |
+| title       | nvarchar(100) | NOT NULL                  | Tên công việc            |
+| description | nvarchar(MAX) | NULL                      | Mô tả chi tiết công việc |
+| deadline    | datetime      | NOT NULL                  | Hạn hoàn thành           |
+| priority    | nvarchar(20)  | NOT NULL                  | Mức độ ưu tiên           |
+| status      | nvarchar(20)  | DEFAULT 'Pending'         | Trạng thái công việc     |
+| created_at  | datetime      | DEFAULT CURRENT_TIMESTAMP | Ngày tạo công việc       |
+| updated_at  | datetime      | NULL                      | Ngày cập nhật gần nhất   |
+| user_id     | int           | FK                        | Liên kết người dùng      |
 
 ---
 
-### Ràng buộc dữ liệu
+## 8.4. Mối quan hệ giữa các bảng
 
-- Username và Email không được trùng lặp.
-- Deadline phải lớn hơn hoặc bằng thời gian hiện tại.
-- Status chỉ nhận các giá trị:
-  - Pending
-  - Completed
+* Một USER có thể quản lý nhiều TASK khác nhau.
+* Mỗi TASK chỉ thuộc về duy nhất một USER.
 
-- Priority chỉ nhận các giá trị:
-  - Low
-  - Medium
-  - High
+→ Quan hệ giữa USER và TASK là One-to-Many (1:N).
+
+Khóa ngoại:
+
+* TASK.user_id tham chiếu đến USER.user_id.
+
+---
+
+## 8.5. Ràng buộc dữ liệu (Business Rules & Constraints)
+
+### Ràng buộc tài khoản
+
+* Username không được trùng lặp.
+* Email không được trùng lặp.
+* Password phải được mã hóa trước khi lưu vào Database.
+
+### Ràng buộc công việc
+
+* Title không được để trống.
+* Title tối đa 100 ký tự.
+* Deadline phải lớn hơn hoặc bằng thời gian hiện tại.
+* Mỗi task phải thuộc về một người dùng cụ thể thông qua user_id.
+
+### Ràng buộc trạng thái (Status)
+
+Status chỉ nhận một trong hai giá trị:
+
+* Pending
+* Completed
+
+### Ràng buộc mức độ ưu tiên (Priority)
+
+Priority chỉ nhận một trong ba giá trị:
+
+* Low
+* Medium
+* High
+
+---
+
+
+
+
 
 # 9. Kiến trúc hệ thống & Công nghệ
 
